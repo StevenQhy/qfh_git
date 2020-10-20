@@ -15,7 +15,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> findAll() {
         //调用dao完成查询
-
         List<User> users = dao.finAll();
         return users;
     }

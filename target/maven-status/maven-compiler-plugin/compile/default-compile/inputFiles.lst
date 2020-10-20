@@ -5,7 +5,6 @@ C:\Users\lenovo\IdeaProjects\day17_case\src\main\java\service\impl\UserServiceIm
 C:\Users\lenovo\IdeaProjects\day17_case\src\main\java\web\controller\CheckCodeServlet.java
 C:\Users\lenovo\IdeaProjects\day17_case\src\main\java\dao\impl\UserDaoImpl.java
 C:\Users\lenovo\IdeaProjects\day17_case\src\main\java\web\controller\DelSelectedServlet.java
-C:\Users\lenovo\IdeaProjects\day17_case\src\main\java\web\filter\LoginFilter.java
 C:\Users\lenovo\IdeaProjects\day17_case\src\main\java\web\controller\LoginServlet.java
 C:\Users\lenovo\IdeaProjects\day17_case\src\main\java\web\controller\FindUserServlet.java
 C:\Users\lenovo\IdeaProjects\day17_case\src\main\java\service\UserService.java
@@ -16,4 +15,3 @@ C:\Users\lenovo\IdeaProjects\day17_case\src\main\java\web\controller\LoginAjaxSe
 C:\Users\lenovo\IdeaProjects\day17_case\src\main\java\util\JDBCUtils.java
 C:\Users\lenovo\IdeaProjects\day17_case\src\main\java\web\controller\DelUserServlet.java
 C:\Users\lenovo\IdeaProjects\day17_case\src\main\java\web\controller\UpdateUserServlet.java
-C:\Users\lenovo\IdeaProjects\day17_case\src\main\java\web\filter\SensitiveWordsFilter.java

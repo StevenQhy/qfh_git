@@ -34,8 +34,6 @@ public class RegistUserServlet extends HttpServlet {
             return;
         }
 
-
-
         //1.获取数据
         Map<String, String[]> map = request.getParameterMap();
         //2.封装对象

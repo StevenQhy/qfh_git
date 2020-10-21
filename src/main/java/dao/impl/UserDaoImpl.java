@@ -22,7 +22,7 @@ public class UserDaoImpl implements UserDao {
         return users;
     }
 
-    @Override
+    @Override//findUserByUsernameAndPassword
     public User login(User loginuser) {
         try {
             //1.编写sql
@@ -152,8 +152,9 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void save(User user) {
-        String sql = "insert into user(id,age,gender,address,email,username,password,code,status) values(null,?,?,?,?,?,?,?,?)";
+        String sql = "insert into user(id,name,age,gender,address,email,username,password,code,status) values(null,?,?,?,?,?,?,?,?,?)";
         template.update(sql,
+                user.getName(),
                 user.getAge(),
                 user.getGender(),
                 user.getAddress(),

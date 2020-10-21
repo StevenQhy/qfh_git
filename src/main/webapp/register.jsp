@@ -90,7 +90,7 @@
 
                         if (data.flag){
                             //注册成功，跳转成功页面
-                            location.href="register_yes.html"
+                            location.href="register_yes.html";
                         }else{
                             //注册失败，给errorMsg添加提示信息
                             $("#errorMsg").html(data.errorMsg);
@@ -160,6 +160,10 @@
         <label for="password">密码：</label>
         <input type="text" class="form-control" id="password" name="password" placeholder="请输入密码">
     </div>
+       <div class="form-group">
+           <label for="realname">姓名：</label>
+           <input id="realname" type="text" class="form-control" name="name" placeholder="请输入真实姓名"/>
+       </div>
        <div class="form-group">
            <label for="age">年龄：</label>
            <input id="age" type="text" class="form-control" name="age" placeholder="请输入年龄"/>

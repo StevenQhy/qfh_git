@@ -55,4 +55,13 @@ public interface UserService {
      * @return
      */
     PageBean<User> findUserByPage(String currentPage, String rows, Map<String, String[]> condition);
+
+    /**
+     * 注册用户
+     * @param user
+     * @return
+     */
+    boolean regist(User user);
+
+    boolean active(String code);
 }

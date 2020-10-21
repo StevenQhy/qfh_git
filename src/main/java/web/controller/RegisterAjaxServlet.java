@@ -15,12 +15,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
-@WebServlet(urlPatterns = "/loginAjaxServlet")
-public class LoginAjaxServlet extends HttpServlet {
+@WebServlet("/registerAjaxServlet")
+public class RegisterAjaxServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
-        response.setCharacterEncoding("utf-8");
 
         String username = request.getParameter("username");
         //获取用户名
@@ -32,11 +29,11 @@ public class LoginAjaxServlet extends HttpServlet {
             if (username.equals(name)){
                 //存在
                 map1.put("userExsit",true);
-                map1.put("msg","该用户已注册");
+                map1.put("msg","该用户名太受欢迎，请换一个");
                 break;
             }else{
                 map1.put("userExsit",false);
-                map1.put("msg","无此账号请去注册");
+                map1.put("msg","账号可用");
             }
         }
         /*//调用service层判断用户名是否存在
@@ -54,7 +51,6 @@ public class LoginAjaxServlet extends HttpServlet {
         ObjectMapper mapper = new ObjectMapper();
         //并传递给客户端
         mapper.writeValue(response.getWriter(),map1);
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

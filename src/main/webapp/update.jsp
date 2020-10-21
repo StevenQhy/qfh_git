@@ -29,7 +29,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="" class="site_title"><span>完美管理系统</span></a>
+                        <a href="" class="site_title"><span>最高权限管理系统</span></a>
                     </div>
 
                     <div class="clearfix"></div>

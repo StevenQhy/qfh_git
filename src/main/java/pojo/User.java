@@ -7,9 +7,28 @@ public class User {
     private int age;
     private String address;
     private String qq;
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     private String email;
     private String username;
     private String password;
+    private String code;
+    private String status;
 
     public String getUsername() {
         return username;

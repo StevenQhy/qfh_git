@@ -1,12 +1,11 @@
 service\impl\UserServiceImpl.class
+web\filter\CharchaterFilter.class
+web\controller\ActiveUserServlet.class
 web\controller\FindUserByPageServlet.class
-web\controller\DelSelectedServlet.class
 web\controller\CheckCodeServlet.class
 web\controller\FindUserServlet.class
 service\UserService.class
 dao\UserDao.class
-web\filter\LoginFilter.class
-util\JDBCUtils.class
 pojo\User.class
 dao\impl\UserDaoImpl.class
 web\controller\AddUserServlet.class
@@ -15,4 +14,12 @@ web\controller\LoginAjaxServlet.class
 web\controller\UpdateUserServlet.class
 web\controller\DelUserServlet.class
 web\controller\LoginServlet.class
+util\UuidUtil.class
+web\controller\DelSelectedServlet.class
+util\MailUtils$1.class
+util\JDBCUtils.class
+util\MailUtils.class
+web\controller\RegisterAjaxServlet.class
+pojo\ResultInfo.class
+web\controller\RegistUserServlet.class
 web\controller\UserListServlet.class

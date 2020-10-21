@@ -35,4 +35,13 @@ public interface UserDao {
      * @return
      */
     List<User> findByPage(int start, int rows, Map<String, String[]> condition);
+
+
+    User findByUsername(String username);
+
+    User findByCode(String code);
+
+    void updateStatus(User user);
+
+    void save(User user);
 }

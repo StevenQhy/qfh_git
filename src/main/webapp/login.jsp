@@ -49,8 +49,20 @@
                 },"json")
             })
         })
+            /*$(function () {
+                $("#btn_login").click(function () {
+                    $.post("loginServlet",$("#login_form").serialize(),function (data) {
+                        if(data.flag){
+                            //登陆成功
+                            location.href="index.jsp";
+                        }else{
+                            //登录失败
+                            $("#errorMsg").html(data.errorMsg);
+                        }
+                    })
+                })
+            })*/
     </script>
-
 
 </head>
 <body>
@@ -58,7 +70,7 @@
 
 <div class="container" style="width: 400px;">
     <h3 style="text-align: center;">管理员登录</h3>
-    <form action="${pageContext.request.contextPath}/loginServlet" method="post">
+    <form id="login_form" action="${pageContext.request.contextPath}/loginServlet" method="post">
         <div class="form-group">
             <label for="usercode">用户名：</label>
             <input type="text" name="username" class="form-control" id="usercode" placeholder="请输入用户名"/>
@@ -80,7 +92,7 @@
         </div>
         <hr/>
         <div class="form-group" style="text-align: center;">
-            <input class="btn btn btn-primary" type="submit" value="登录">
+            <input id="btn_login" class="btn btn btn-primary" type="submit" value="登录">
         </div>
     </form>
 

@@ -23,21 +23,42 @@ public class LoginAjaxServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
 
         String username = request.getParameter("username");
+        String pawd = request.getParameter("password");
         //获取用户名
         Map<String,Object> map1 = new HashMap<String,Object>();
         UserDao dao = new UserDaoImpl();
         List<User> users = dao.finAll();
         for (User user : users) {
             String name = user.getUsername();
+            String password = user.getPassword();
+            String status = user.getStatus();
             if (username.equals(name)){
-                //存在
-                map1.put("userExsit",true);
-                map1.put("msg","该用户已注册");
-                break;
+                if ("Y".equals(status)){
+                    map1.put("userExsit",true);
+                    map1.put("msg","恭喜您,您已注册且账号已激活");
+                    break;
+                }else{
+                    map1.put("userExsit",false);
+                    map1.put("msg","账户已注册，但未激活请去邮箱激活");
+                }
             }else{
                 map1.put("userExsit",false);
-                map1.put("msg","无此账号请去注册");
+                map1.put("msg","账户未激活或未注册，请去注册或激活");
             }
+
+            /*if(username.equals(name) && "Y".equals(status)){
+                map1.put("userExsit",true);
+                map1.put("msg","恭喜您,您已注册且账号已激活");
+                break;
+            }
+            if(username.equals(name) && !"Y".equals(status)){
+                map1.put("userExsit",false);
+                map1.put("msg","您未激活，请去邮箱激活");
+            }
+            if(!username.equals(name)){
+                map1.put("userExsit",false);
+                map1.put("msg","无此账号请去注册");
+            }*/
         }
         /*//调用service层判断用户名是否存在
             if("tom".equals(username)){

@@ -1,5 +1,6 @@
 package controller;
 
+import daofc.PageDao;
 import daofc.WeaponDao;
 import pojofc.Weapon;
 
@@ -9,7 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+
+import static daofc.PageDao.startPage;
 
 @WebServlet(name="likesearch",urlPatterns = "/selectWeaponForLike")
 public class LikeSearchServlet extends HttpServlet {
@@ -18,17 +22,47 @@ public class LikeSearchServlet extends HttpServlet {
         req.setCharacterEncoding("utf-8");
         resp.setCharacterEncoding("utf-8");
         String weaponname = req.getParameter("weaponname");
-        String currentPage = req.getParameter("currentPage");
+       Integer currentPage = Integer.parseInt(req.getParameter("currentPage"));
         System.out.println(currentPage+"搜索时当前页");
+        System.out.println("weaponname:"+weaponname);
+
+
+        int pageSize=5;
+
         //将name传给weapondao
         WeaponDao weaponDao=new WeaponDao();
-        List<Weapon> listlike = weaponDao.selectWeaponForLike(weaponname);
+        List<Weapon> list = weaponDao.selectWeaponForLike(weaponname);
+        System.out.println(list.toString()+"=====");
+
+
+
+        int totals=list.size();
+        int page = totals % pageSize != 0 ? totals / pageSize + 1 : totals / pageSize;
+//        //将页数显示到页面
+//        req.setAttribute("page",page);
+        ArrayList<Integer> array=new ArrayList<>();//设置一个集合,集合中添加的元素为网页显示的页上的值:例如上一页:1,2,3下一页这个标签显示的1,2,3
+        int i=1;
+        int pageone=page;
+        while(pageone!=0){
+            pageone--;
+            array.add(i);
+            i++;
+        }
+        if (currentPage>page){
+            currentPage=page;
+        }
+        if (currentPage<1){
+            currentPage=1;
+        }
+
+        List listlike = startPage(list, currentPage, pageSize);
         System.out.println(listlike.toString());
-        //将数据绑定到main.jsp
+        req.setAttribute("array",array);
         req.setAttribute("listlike",listlike);
         req.setAttribute("currentPage",currentPage);
+        req.setAttribute("weaponname",weaponname);
         //转发
-        req.getRequestDispatcher("hewuku.jsp").forward(req,resp);
+        req.getRequestDispatcher("LikeSearchFc.jsp").forward(req,resp);
 
 
     }

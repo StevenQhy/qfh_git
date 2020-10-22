@@ -28,7 +28,10 @@ public class UpdateWeaponInfo extends HttpServlet {
         WeaponDao weaponDao=new WeaponDao();
         int row = weaponDao.UpdateWeaponInfo(weaponid,weaponname,launchplace, range, amount);
         if(row>0){
-            resp.sendRedirect("/findAllWeapons");
+            String currentPage = req.getParameter("currentPage");
+            System.out.println("++++***++++*****"+currentPage);
+
+            resp.sendRedirect("/findAllWeapons?currentPage="+currentPage);
         }else{
             req.getRequestDispatcher("error").forward(req,resp);
         }

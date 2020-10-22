@@ -143,7 +143,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav ">
                 <li>
-                    <a href="/findAllWeapons" class="navbar-brand" >核武库</a>
+                    <a href="/findAllWeapons?currentPage=1" class="navbar-brand" >核武库</a>
                 </li>
                 <li ><a href="/toBaiKe">官方文档<span class="sr-only">(current)</span></a></li>
                 <li><a href="#">海基导弹</a></li>
@@ -213,39 +213,18 @@
             </ul>
 
 
-        <nav aria-label="...">
-            <ul class="pager">
-                <li><a href="#">Previous</a></li>
-                <li><a href="#">Next</a></li>
-            </ul>
-        </nav>
-
-        <nav aria-label="Page navigation">
-            <ul class="pagination">
-                <li>
-                    <a href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                    <a href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
 
 
-        </nav>
     </div>
 
+</div> <nav aria-label="...">
+    <ul class="pager">
+        <li><a href="#">上一页</a></li>
+        <li><a href="#">下一页</a></li><button type="button"></button>
+    </ul>
+</nav>
+
 </div>
-
-
 </body>
 <script>
     function findWeaponByWeaponId(weaponid) {

@@ -12,11 +12,13 @@ import java.util.List;
 
 public class WeaponDao {
     //查询weapon表中的所有数据
-    public List<Weapon> findAllWeaponInfo() {
+    public List<Weapon> findAllWeaponInfo(int currentPage,int pageSize) {
         List<Weapon> list = new ArrayList<>();
 
         Connection connection = DBUtil.getConn();
-        String sql = "select *from tb_weapon";
+
+        int offset=(currentPage-1)*pageSize;
+        String sql = "select *from tb_weapon limit "+offset+" , "+pageSize;
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
             //因为没有参数,不用给?赋值,省略
@@ -206,4 +208,31 @@ finally {
         return list;
 
     }
+
+    //获取数库表条数
+    public  int getDataTotal(){
+        Connection conn = DBUtil.getConn();
+        int row=0;
+        String sql="select * from tb_weapon";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                row++;
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        finally {
+            try {
+                conn.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+
+            return row;
+        }
+    }
+
 }

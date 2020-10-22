@@ -18,12 +18,15 @@ public class LikeSearchServlet extends HttpServlet {
         req.setCharacterEncoding("utf-8");
         resp.setCharacterEncoding("utf-8");
         String weaponname = req.getParameter("weaponname");
+        String currentPage = req.getParameter("currentPage");
+        System.out.println(currentPage+"搜索时当前页");
         //将name传给weapondao
         WeaponDao weaponDao=new WeaponDao();
-        List<Weapon> list = weaponDao.selectWeaponForLike(weaponname);
-        System.out.println(list.toString());
+        List<Weapon> listlike = weaponDao.selectWeaponForLike(weaponname);
+        System.out.println(listlike.toString());
         //将数据绑定到main.jsp
-        req.setAttribute("list",list);
+        req.setAttribute("listlike",listlike);
+        req.setAttribute("currentPage",currentPage);
         //转发
         req.getRequestDispatcher("hewuku.jsp").forward(req,resp);
 

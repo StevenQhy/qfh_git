@@ -20,7 +20,10 @@ public class DeleteWeaponServlet  extends HttpServlet {
         int row = weaponDao.deleteWeaponById(weaponid);
         //对返回值进行判断
         if (row>0){
-          resp.sendRedirect("/findAllWeapons");
+//            String currentPage = req.getParameter("currentPage");
+
+            req.getRequestDispatcher("/findAllWeapons").forward(req,resp);
+//          req.setAttribute("currentPage",currentPage);
 //            req.getRequestDispatcher("/findAllWeapons").forward(req,resp);
         }else{
         req.getRequestDispatcher("error.jsp").forward(req,resp);

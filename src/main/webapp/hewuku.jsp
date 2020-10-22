@@ -46,9 +46,9 @@
     </style>
 </head>
 <body>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="background-image: url(image/04.jpg)">
+    <div class="modal-dialog" role="document" >
+        <div class="modal-content"style="background-color: rgba(255,255,255,0.7);margin-top: 100px">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="exampleModalLabel">核弹一览</h4>
@@ -79,7 +79,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" id="btn1">确认</button>
+                <button type="button" class="btn btn-primary" id="btn1" href="/findAllWeapons?currentpage=${currentPage}">确认</button>
             </div>
         </div>
     </div>
@@ -88,13 +88,13 @@
 
 
 
-<div class="modal fade"  id="my" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+<div class="modal fade"  id="my" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="background-image: url(image/05.jpg);background-size: cover">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content" style="background-color: rgba(255,255,255,0.7);margin-top: 200px">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title"name="exampleModalLabel">添加</h4>
-            </div>            <form action="/addweapontest"method="post">
+            </div>            <form action="/addweapontest?currentPage=${currentPage}"method="post">
             <div class="modal-body">
 
 
@@ -151,7 +151,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav ">
-                <li class="active"><a href="/findAllWeapons" class="navbar-brand">核武库</a></li>
+                <li class="active"><a href="/findAllWeapons?currentPage=1" class="navbar-brand">核武库</a></li>
                 <li  ><a href="/toBaiKe">官方文档 <span class="sr-only">(current)</span></a></li>
                 <li><a href="#">海基导弹</a></li>
                 <li><a href="#">空基导弹</a></li>
@@ -170,9 +170,9 @@
                         <li><a href="#">One more separated link</a></li>
 
                     </ul>
-                </li><li><span class="glyphicon glyphicon-search" style="color:white;margin-top: 18px ;margin-left: 200px"></span></li>
+                </li><li><span class="glyphicon glyphicon-search" style="color:white;margin-top: 18px ;margin-left: 180px"></span></li>
             </ul>
-            <form class="navbar-form navbar-left"style="margin-left: 18px"action="/selectWeaponForLike">
+            <form class="navbar-form navbar-left"style="margin-left: 18px"method="post" action="/selectWeaponForLike?currentPage=1">
                 <div class="form-group">
                     <input type="text" class="form-control"name="weaponname" placeholder="请输入名称进行检索....">
                 </div>
@@ -191,7 +191,7 @@
                             class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">用户设置</a></li>
-                        <li><a href="#">界面设置n</a></li>
+                        <li><a href="#">界面设置</a></li>
                         <li><a href="#">其他设置</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#">修改密码</a></li>
@@ -204,7 +204,11 @@
 
 
 <div style="width: 80%;height:100vh;margin-left:10% ">
+    <table class="table table-bordered  table-condensed"   style="width: 90%;margin-left: 5%;font-weight: bolder;background-color: rgba(255,255,255,0.7);margin-bottom: 0px">  <tr><td ><a style="margin-left: 430px;font-size: 30px;text-decoration: none">中华人民共和国核武器一览</a> <button type="button"class="btn btn-success"data-toggle="modal" data-target="#my" data-whatever="@mdo onclick=" style="margin-left: 410px" >
+        添加
+    </button></td></tr></table>
     <table class="table table-bordered  table-hover table-condensed"   style="width: 90%;margin-left: 5%;font-weight: bolder;background-color: rgba(255,255,255,0.7)">
+
         <tr>
             <td class="success" style="width: 10%">编号</td>
             <td class="active" style="width: 20% ;background-color: #bce8f1">名称</td>
@@ -223,18 +227,48 @@
                 <td style="padding-top: 12px">${i.range}</td>
                 <td style="padding-top: 12px">${i.amount}</td>
                 <td><button type="button" class="btn btn-info"data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo onclick=" onclick=" findWeaponByWeaponId('${i.weaponid}')"style="margin-left: 38px">修改</button>
-                    <button type="button" class="btn btn-danger" style="margin-left: 58px"><a href="/deleteWeaponById?weaponid=${i.weaponid}"style="color: white" >删除</a></button></td>
-
-
+                    <button type="button" class="btn btn-danger" style="margin-left: 78px"><a href="/deleteWeaponById?weaponid=${i.weaponid}&currentPage=${currentPage}"style="color: white" >删除</a></button></td>
             </tr>
-        </c:forEach>
 
+
+        </c:forEach>
+        <c:forEach items="${listlike}" var="i">
+            <tr  >
+                <td style="padding-top: 12px " id="tablehover2">${i.weaponid}</td>
+                <td style="padding-top: 12px">${i.weaponname}</td>
+                <td style="padding-top: 12px">${i.launchplace}</td>
+                <td style="padding-top: 12px">${i.range}</td>
+                <td style="padding-top: 12px">${i.amount}</td>
+                <td><button type="button" class="btn btn-info"data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo onclick=" onclick=" findWeaponByWeaponId('${i.weaponid}')"style="margin-left: 38px">修改</button>
+                    <button type="button" class="btn btn-danger" style="margin-left: 78px"><a href="/deleteWeaponById?weaponid=${i.weaponid}&currentPage=${currentPage}"style="color: white" >删除</a></button></td>
+            </tr>
+
+
+        </c:forEach>
     </table>
-    <button type="button"class="btn btn-info"data-toggle="modal" data-target="#my" data-whatever="@mdo onclick="  >
-        添加
-    </button>
+    <nav aria-label="Page navigation" style="margin-left: 5%">
+        <ul class="pagination">
+            <li>
+                <a href="/findAllWeapons?currentPage=${currentPage-1}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <c:forEach items="${array}"  varStatus="i">
+                <li><a href="/findAllWeapons?currentPage=${i.count}">${i.count}</a></li><!--获取集合索引值-->
+            </c:forEach>
+            <li>
+                <a href="/findAllWeapons?currentPage=${currentPage+1}" aria-label="Next" >
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+
+
+    </nav>
+
 </div>
 </div>
+
 </body>
 <script>
     function findWeaponByWeaponId(id) {
@@ -260,7 +294,7 @@
         var launchplace = $("#launchplace").val();
         var range = $("#range").val();
         var amount = $("#amount").val();
-        window.location.href="/toUpdateWeaponInfo?weaponid="+weaponid+"&weaponname="+weaponname+"&launchplace="+launchplace+"&range="+range+"&amount="+amount;
+        window.location.href="/toUpdateWeaponInfo?weaponid="+weaponid+"&weaponname="+weaponname+"&launchplace="+launchplace+"&range="+range+"&amount="+amount+"&currentPage="+${currentPage};
     });
 </script>
 </html>

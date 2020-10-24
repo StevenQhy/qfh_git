@@ -11,7 +11,8 @@
 <link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 <script src="resources/bootstrap-3.3.7-dist/js/jquery-1.9.1.min.js"></script>
 <script src="resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-
+<script src="js/L2Dwidget.0.min.js"></script>
+<script src="js/L2Dwidget.min.js"></script>
     <!--[if lte IE 9]>
 <script>
     (function() {
@@ -175,6 +176,30 @@
             height: auto;
             width: auto;
         }
+.back-to {
+    bottom: 55px;
+    overflow: hidden;
+    position: fixed;
+    right: 10px;
+    width: 110px;
+    z-index: 999;
+}
+.back-to .back-top {
+    background: url("./images/top.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    float: right;
+    height: 50px;
+    margin-left: 10px;
+    outline: 0 none;
+    text-indent: -9999em;
+    width: 50px;
+}
+.back-to .back-top:hover {
+    background-position: -50px 0
+}
+
+
+
 
 
 </style></head>
@@ -205,7 +230,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav ">
-            <li ><a href="/findAllWeapons" class="navbar-brand">核武库</a></li>
+            <li ><a href="/findAllWeapons?currentPage=1" class="navbar-brand">核武库</a></li>
             <li class="active"><a href="toBaiKe">官方文档 <span class="sr-only">(current)</span></a></li>
             <li><a href="#">海基导弹</a></li>
             <li><a href="#">空基导弹</a></li>
@@ -233,9 +258,9 @@
             <button type="submit" class="btn btn-default">搜索</button>
         </form>
         <ul class="nav navbar-nav navbar-right" >
-            <li><a href="login.jsp">登录</a></li>
+            <li><a href="loginfc.jsp">登录</a></li>
 
-            <li><a href="register.jsp">注册</a></li>
+            <li><a href="registerfc.jsp">注册</a></li>
             <li><a href="#">${msg}</a></li>
             <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span></a></li>
 
@@ -713,6 +738,78 @@
                             </dd>
                             <dd class="catalog-title level2">
                                 <a href="#8_5" class="title-link">
+                                </a></dd></div></div></div></div>
+
+<div onClick="gotoTop();return false;" style="position:fixed;right:160px;bottom:12%;cursor: pointer"><img class="img-circle" src="image/16.jpg" width=70px;height=70px></div>
+<script>
+    /**
+     * JavaScript脚本实现回到页面顶部示例
+     * @param acceleration 速度
+     * @param stime 时间间隔 (毫秒)
+     **/
+    function gotoTop(acceleration,stime) {
+        acceleration = acceleration || 0.1;
+        stime = stime || 10;
+        var x1 = 0;
+        var y1 = 0;
+        var x2 = 0;
+        var y2 = 0;
+        var x3 = 0;
+        var y3 = 0;
+        if (document.documentElement) {
+            x1 = document.documentElement.scrollLeft || 0;
+            y1 = document.documentElement.scrollTop || 0;
+        }
+        if (document.body) {
+            x2 = document.body.scrollLeft || 0;
+            y2 = document.body.scrollTop || 0;
+        }
+        var x3 = window.scrollX || 0;
+        var y3 = window.scrollY || 0;
+
+        // 滚动条到页面顶部的水平距离
+        var x = Math.max(x1, Math.max(x2, x3));
+        // 滚动条到页面顶部的垂直距离
+        var y = Math.max(y1, Math.max(y2, y3));
+
+        // 滚动距离 = 目前距离 / 速度, 因为距离原来越小, 速度是大于 1 的数, 所以滚动距离会越来越小
+        var speeding = 1 + acceleration;
+        window.scrollTo(Math.floor(x / speeding), Math.floor(y / speeding));
+
+        // 如果距离不为零, 继续调用函数
+        if(x > 0 || y > 0) {
+            var run = "gotoTop(" + acceleration + ", " + stime + ")";
+            window.setTimeout(run, stime);
+        }
+    }
+
+</script>
+</body>
+
+<script>
+    L2Dwidget.init({
+        "model": {
+            jsonPath: "Live2dHistoire/model/histoire/model.json",<!--这里改模型，前面后面都要改-->
+            "scale": 1
+        },
+        "display": {
+            "position": "left",<!--设置看板娘的上下左右位置-->
+            "width": 250,
+            "height": 500,
+            "hOffset": 100,
+            "vOffset": -100,
+        },
+        "mobile": {
+            "show": true,
+            "scale": 0.5
+        },
+        "react": {
+            "opacityDefault": 0.7,<!--设置透明度-->
+            "opacityOnHover": 0.2
+        }
+    });</script>
+
+
 
 <script async="" src="https://dlswbr.baidu.com/heicha/mw/abclite-2020-s.js"></script>
 

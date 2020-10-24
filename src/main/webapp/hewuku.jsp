@@ -179,9 +179,9 @@
                 <button type="submit" class="btn btn-default">检索</button>
             </form>
             <ul class="nav navbar-nav navbar-right" >
-                <li><a href="login.jsp">登录</a></li>
+                <li><a href="loginfc.jsp">登录</a></li>
 
-                <li><a href="register.jsp">注册</a></li>
+                <li><a href="registerfc.jsp">注册</a></li>
                 <li><a href="#">${msg}</a></li>
                 <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span></a></li>
 

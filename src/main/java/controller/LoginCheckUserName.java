@@ -16,13 +16,13 @@ public class LoginCheckUserName extends HttpServlet {
         resp.setCharacterEncoding("utf-8");
         //接受参数
 
-        String name = req.getParameter("username");
+        String username = req.getParameter("username");
 
         //获取输出流
         PrintWriter out = resp.getWriter();
         //告诉浏览器服务端输出的内容
         resp.setContentType("text/html;charset=utf-8");
-        if (name == null || name == "") {
+        if (username == null || username == "") {
 
             out.println("用户名不能为空");
 

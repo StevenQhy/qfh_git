@@ -11,20 +11,22 @@ import java.sql.SQLException;
 
 public class UserDao {
     //写一个添加用户数据的方法 对于添加删除修改,方法返回值可以是受影响的行数 int
-    public int addUserInfo(String name, String pwd) {
+    public int addUserInfo(String username, String pwd,String name,String address,String ucode) {
         //获取数据库连接对象
         Connection conn = DBUtil.getConn();
         PreparedStatement ps = null;//创建一个 PreparedStatement 对象来将参数化的 SQL 语句发送到数据库
 
         int row = 0;
-        String sql = "insert into tb_user(id,name,password,tel) values(null,?,?,?)";
+        String sql = "insert into tb_user(id,username,password,name,address,ucode) values(null,?,?,?,?,?)";
 
 
         try {
             ps = conn.prepareStatement(sql);
-            ps.setString(1, name);
+            ps.setString(1, username);
             ps.setString(2, pwd);
-            ps.setString(3, null);
+            ps.setString(3, name);
+            ps.setString(4,address);
+            ps.setString(5,ucode);
 
 
             row = ps.executeUpdate();
@@ -50,29 +52,29 @@ public class UserDao {
     }
 
 
-    public User judge(String name) {
+    public User judge(String username) {
         Connection conn = DBUtil.getConn();//获取数据库连接对象
         User user = null;
-        String sql = "select * from tb_user where name=? ";
+        String sql = "select * from tb_user where username=? ";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
 
-            ps.setString(1, name);
+            ps.setString(1, username);
 
             ResultSet r = ps.executeQuery();
 
             if (r.next()) {
                 int id = r.getInt("id");
-                String username = r.getString("name");
+                String name = r.getString("username");
                 String pwd = r.getString("password");
-                String tel = r.getString("tel");
+                String ucode = r.getString("ucode");
                 //将得到的方法
 
                 user = new User();
                 user.setId(id);
-                user.setName(username);
+                user.setUsername(name);
                 user.setPassword(pwd);
-                user.setTel(tel);
+                user.setUcode(ucode);
 
 
             }

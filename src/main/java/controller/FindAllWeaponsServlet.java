@@ -19,7 +19,7 @@ public class FindAllWeaponsServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //去数据库查询表数据
         HttpSession httpSession = req.getSession();
-        String name = (String)httpSession.getAttribute("username");
+        String username = (String)httpSession.getAttribute("username");
 
 
 
@@ -61,7 +61,7 @@ public class FindAllWeaponsServlet extends HttpServlet {
         List<Weapon> list=weaponDao.findAllWeaponInfo(currentPage,pageSize);
         //将集合绑定到hewuku.jsp
         req.setAttribute("list",list);
-        req.setAttribute("msg",name + ":欢迎回来");
+        req.setAttribute("msg",username + ":欢迎回来");
         req.getRequestDispatcher("hewuku.jsp").forward(req,resp);
 
 

@@ -5,9 +5,11 @@ package pojofc;
  */
 public class User {
     private Integer id;
+    private String username;
     private String name;
     private String password;
-    private String tel;
+    private String address;
+    private String ucode;
 
     public Integer getId() {
         return id;
@@ -16,6 +18,16 @@ public class User {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+
 
     public String getName() {
         return name;
@@ -33,21 +45,31 @@ public class User {
         this.password = password;
     }
 
-    public String getTel() {
-        return tel;
+    public String getAdress() {
+        return address;
     }
 
-    public void setTel(String tel) {
-        this.tel = tel;
+    public void setAdress(String adress) {
+        this.address = adress;
     }
 
+    public String getUcode() {
+        return ucode;
+    }
+
+    public void setUcode(String ucode) {
+        this.ucode = ucode;
+    }
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", username='" + username + '\'' +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
-                ", tel='" + tel + '\'' +
+                ", adress='" + address + '\'' +
+                ", ucode='" + ucode + '\'' +
                 '}';
     }
+
 }

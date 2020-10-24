@@ -13,8 +13,8 @@ public class ToMainServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        String name = (String)session.getAttribute("username");
-        req.setAttribute("msg",name + ":欢迎回来");
+        String username = (String)session.getAttribute("username");
+        req.setAttribute("msg",username + ":欢迎回来");
         req.getRequestDispatcher("main.jsp").forward(req,resp);
 
 

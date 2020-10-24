@@ -22,13 +22,13 @@ public class CheckUserNameServlet extends HttpServlet {
         resp.setCharacterEncoding("utf-8");
         //接受参数
 
-        String name = req.getParameter("username");
+        String username = req.getParameter("username");
         String pwd = req.getParameter("pwd");
 //        System.out.println("牛牛牛牛牛");
         PrintWriter out = resp.getWriter();
         resp.setContentType("text/html;charset=utf-8");
 
-        if (name.isEmpty()) {
+        if (username.isEmpty()) {
 
             out.println("用户名不能为空");
 
@@ -36,7 +36,7 @@ public class CheckUserNameServlet extends HttpServlet {
 
 
             UserDao userDao = new UserDao();
-            User user = userDao.judge(name);
+            User user = userDao.judge(username);
 
             //获取输出流
 

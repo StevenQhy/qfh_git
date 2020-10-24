@@ -33,7 +33,7 @@ public class LikeSearchUpdataWeapon extends HttpServlet {
         if(row>0){
             String currentPage = req.getParameter("currentPage");
             System.out.println("++++***++++*****"+currentPage);
-            String url = URLEncoder.encode(weaponname,"UTF-8");
+            String url = URLEncoder.encode(weaponname,"UTF-8");//不加这一句无法识别中文
             resp.sendRedirect("/selectWeaponForLike?currentPage="+currentPage+"&weaponname="+weaponname);
 
         }else{

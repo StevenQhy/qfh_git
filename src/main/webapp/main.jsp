@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <script src="resources/bootstrap-3.3.7-dist/js/jquery-1.9.1.min.js"></script>
     <script src="resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="js/L2Dwidget.0.min.js"></script>
+    <script src="js/L2Dwidget.min.js"></script>
     <style>
 
         *{
@@ -85,7 +87,8 @@
     </style>
 
 </head>
-<script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
+<script src="js/L2Dwidget.0.min.js"></script>
+<script src="js/L2Dwidget.min.js"></script>
 
 
 <body>
@@ -104,7 +107,7 @@
 <script>
     L2Dwidget.init({
         "model": {
-            jsonPath:  "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",<!--这里改模型，前面后面都要改-->
+            jsonPath:  "https://unpkg.com/live2d-widget-model-haruto@1.0.5/assets/haruto.model.json",<!--这里改模型，前面后面都要改-->
             "scale": 1
         },
         "display": {
@@ -174,9 +177,9 @@
             </form>
             <ul class="nav navbar-nav navbar-right" >
 
-                <li><a href="login.jsp">登录</a></li>
+                <li><a href="loginfc.jsp">登录</a></li>
 
-                <li><a href="register.jsp">注册</a></li>
+                <li><a href="registerfc.jsp">注册</a></li>
                 <li><a href="#">${msg}</a></li>
                 <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span></a></li>
 
@@ -189,7 +192,9 @@
                         <li><a href="#">界面设置</a></li>
                         <li><a href="#">其他设置</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">修改密码</a></li>
+                        <li><a href="login.jsp">管理员入口</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">修改信息</a></li>
                     </ul>
                 </li>
             </ul>
@@ -213,10 +218,115 @@
             </ul>
 
 
+            <div style="width: 70%;margin-left: 15%;margin-top: -150px">
+            <div class="row">
+                <div class="col-sm-6 col-md-3"style="float: left;width: 25%">
+                    <div class="thumbnail"style="height: 375px;background-color: rgba(255,255,255,0.7)">
+                        <img src="image/01.jpg" alt="..."style="height: 40%;width: 100%">
+                        <div class="caption">
+                            <h3>Thumbnail label</h3>
+                            <p>...</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3"style="float: left;width: 25%">
+                    <div class="thumbnail"style="height: 375px;background-color: rgba(255,255,255,0.7)">
+                        <img src="image/02.jpg" alt="..."style="height: 40%;width: 100%">
+                        <div class="caption">
+                            <h3>Thumbnail label</h3>
+                            <p>...</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4"style="float: left;width: 25%">
+                    <div class="thumbnail"style="height: 375px;background-color: rgba(255,255,255,0.7)">
+                        <img src="image/03.jpg" alt="..."style="height: 40%;width: 100%">
+                        <div class="caption">
+                            <h3>Thumbnail label</h3>
+                            <p>...</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                        </div>
+                    </div>
+                </div>
 
+
+                <div class="col-sm-6 col-md-4"style="float: left;width: 25%">
+                    <div class="thumbnail"style="height: 375px;background-color: rgba(255,255,255,0.7)">
+                        <img src="image/04.jpg" alt="..."style="height: 40%;width: 100%">
+                        <div class="caption">
+                            <h3>Thumbnail label</h3>
+                            <p>...</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                    </div>
+
+            <div style="width: 70%;margin-left: 15%">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4"style="float: left;width: 20%">
+                        <div class="thumbnail"style="height: 300px;background-color: rgba(255,255,255,0.7)">
+                            <img src="image/05.jpg" alt="..."style="height: 40%;width: 100%">
+                            <div class="caption">
+                                <h3>Thumbnail label</h3>
+                                <p>...</p>
+                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4"style="float: left;width: 20%">
+                        <div class="thumbnail"style="height: 300px;background-color: rgba(255,255,255,0.7)">
+                            <img src="image/06.jpg" alt="..."style="height: 40%;width: 100%">
+                            <div class="caption">
+                                <h3>Thumbnail label</h3>
+                                <p>...</p>
+                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4"style="float: left;width: 20%">
+                        <div class="thumbnail"style="height: 300px;background-color: rgba(255,255,255,0.7)">
+                            <img src="image/07.jpg" alt="..."style="height: 40%;width: 100%">
+                            <div class="caption">
+                                <h3>Thumbnail label</h3>
+                                <p>...</p>
+                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-6 col-md-4"style="float: left;width: 20%">
+                        <div class="thumbnail"style="height: 300px;background-color: rgba(255,255,255,0.7)">
+                            <img src="image/08.jpg" alt="..."style="height: 40%;width: 100%">
+                            <div class="caption">
+                                <h3>Thumbnail label</h3>
+                                <p>...</p>
+                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4"style="float: left;width: 20%">
+                        <div class="thumbnail"style="height: 300px;background-color: rgba(255,255,255,0.7)">
+                            <img src="image/05.jpg" alt="..."style="height: 40%;width: 100%">
+                            <div class="caption">
+                                <h3>Thumbnail label</h3>
+                                <p>...</p>
+                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+                </div>
 
     </div>
-
+        </div>
 </div> <nav aria-label="...">
     <ul class="pager">
         <li><a href="#">上一页</a></li>
@@ -224,7 +334,10 @@
     </ul>
 </nav>
 
+
 </div>
+
+
 </body>
 <script>
     function findWeaponByWeaponId(weaponid) {

@@ -18,29 +18,29 @@ public class LoginCheckServlet extends HttpServlet {
         req.setCharacterEncoding("utf-8");
         resp.setCharacterEncoding("utf-8");
 
-        String name = req.getParameter("username");
+        String username = req.getParameter("username");
         String pwd = req.getParameter("pwd");
 
         UserDao userDao = new UserDao();
-        User user = userDao.judge(name);
+        User user = userDao.judge(username);
 
         if (user == null) {
             req.setAttribute("msg", "该用户不存在");
-            req.getRequestDispatcher("login.jsp").forward(req, resp);
+            req.getRequestDispatcher("loginfc.jsp").forward(req, resp);
 
         } else {
-            if (user.getName().equals(name) && user.getPassword().equals(pwd)) {
+            if (user.getUsername().equals(username) && user.getPassword().equals(pwd)) {
                 //创建session对象
                 HttpSession httpSession = req.getSession();
                 //将用户名绑定到session
-                httpSession.setAttribute("username", name);
-                req.setAttribute("msg", name + ":欢迎回来");
+                httpSession.setAttribute("username", username);
+                req.setAttribute("msg", username + ":欢迎回来");
                 req.getRequestDispatcher("main.jsp").forward(req, resp);
 
 
             } else {
                 req.setAttribute("msg", "用户名或密码错误");
-                req.getRequestDispatcher("login.jsp").forward(req, resp);
+                req.getRequestDispatcher("loginfc.jsp").forward(req, resp);
 
             }
         }

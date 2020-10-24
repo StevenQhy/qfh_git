@@ -21,12 +21,18 @@ public class RegisterServlet extends HttpServlet {
 
         String username = req.getParameter("username");
         String password = req.getParameter("pwd");
+        String name = req.getParameter("name");
+        String address = req.getParameter("address");
+        String ucode = req.getParameter("ucode");
 
 
         PrintWriter out = resp.getWriter();
 
         System.out.println(username);
         System.out.println(password);
+        System.out.println(name);
+        System.out.println(address);
+        System.out.println(ucode);
 
 
         if (username.isEmpty()) {
@@ -50,7 +56,7 @@ public class RegisterServlet extends HttpServlet {
 
                 if (user == null) {
                     System.out.println("1111");
-                    int row = dao.addUserInfo(username, password);
+                    int row = dao.addUserInfo(username, password,name,address,ucode);
                     if (row >= 1) {
                         out.println(13);
                         //添加数据成功,跳转登录页面

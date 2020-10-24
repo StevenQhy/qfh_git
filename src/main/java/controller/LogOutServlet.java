@@ -19,10 +19,10 @@ public class LogOutServlet extends HttpServlet {
         if(name!=null){
             //清空session数据
             session.removeAttribute("username");
-           resp.sendRedirect("login.jsp");
+           resp.sendRedirect("main.jsp");
         }
 else{
-    resp.sendRedirect("login.jsp");
+    resp.sendRedirect("main.jsp");
         }
 
     }

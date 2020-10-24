@@ -29,11 +29,11 @@ public class RegisterAjaxServlet extends HttpServlet {
             if (username.equals(name)){
                 //存在
                 map1.put("userExsit",true);
-                map1.put("msg","该用户名太受欢迎，请换一个");
+                map1.put("msg","该管理员已存在");
                 break;
             }else{
                 map1.put("userExsit",false);
-                map1.put("msg","账号可用");
+                map1.put("msg","管理员账号可用");
             }
         }
         /*//调用service层判断用户名是否存在

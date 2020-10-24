@@ -38,7 +38,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void add(User user) {
-        String sql = "insert into user values(null,?,?,?,?,?,?,null,null)";
+        String sql = "insert into user values(null,?,?,?,?,?,?,null,null,null,'Y')";
         template.update(sql,user.getName(),user.getGender(),user.getAge(),user.getAddress(),user.getQq(),user.getEmail());
     }
 
@@ -111,6 +111,9 @@ public class UserDaoImpl implements UserDao {
 
         //添加分页查询
         sb.append(" limit ?,? ");
+        if(start<0){
+            start = 0;
+        }
         //添加分页查询参数
         param.add(start);
         param.add(rows);
@@ -123,8 +126,8 @@ public class UserDaoImpl implements UserDao {
     public User findByUsername(String username) {
         User user = null;
         try {
-            String sql = "select * from user where username = ?";
-            template.queryForObject(sql,new BeanPropertyRowMapper<User>(User.class),username);
+            String sql = "select * from user where username=?";
+            user = template.queryForObject(sql,new BeanPropertyRowMapper<User>(User.class),username);
         } catch (DataAccessException e) {
 
         }
@@ -164,6 +167,5 @@ public class UserDaoImpl implements UserDao {
                 user.getCode(),
                 user.getStatus());
     }
-
 
 }

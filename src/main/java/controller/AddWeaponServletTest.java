@@ -21,50 +21,63 @@ public class AddWeaponServletTest extends HttpServlet {
         String launchplace = req.getParameter("launchplace");
         String range = req.getParameter("range");
         String amount = req.getParameter("amount");
-        System.out.println(launchplace);
 
-        System.out.println(weaponname);
-        System.out.println(range);
-        System.out.println( amount);
-        WeaponDao weaponDao=new WeaponDao();
+        System.out.println("发射点"+launchplace);
+        System.out.println("武器名"+weaponname);
+        System.out.println("射程"+range);
+        System.out.println("数量"+ amount);
+        HttpSession emptyin = req.getSession();
+
+        if(weaponname.isEmpty()||launchplace.isEmpty()||range.isEmpty()||amount.isEmpty()){
+            System.out.println("kongkongkong");
+            emptyin.setAttribute("emptyin","2");
+            resp.sendRedirect("/findAllWeapons?currentPage=1");
+            System.out.println(emptyin+"1111111");
 
 
-        //获取weapon表数据条数
-        int totals = weaponDao.getDataTotal();
-        //一页显示5条
-        int pageSize=5;
-        //算出多少页
-        int page = totals % pageSize != 0 ? totals / pageSize + 1 : totals / pageSize;
 
-        int row = weaponDao.AddNewWeapon(weaponname, launchplace, range, amount);
-        if(row>0){
+        }else{
+            WeaponDao weaponDao=new WeaponDao();
+
+
             //获取weapon表数据条数
-            int totalsnew = weaponDao.getDataTotal();
+            int totals = weaponDao.getDataTotal();
+            //一页显示5条
+            int pageSize=5;
             //算出多少页
-            int pagenew = totalsnew % pageSize != 0 ? totalsnew / pageSize + 1 : totalsnew / pageSize;
+            int page = totals % pageSize != 0 ? totals / pageSize + 1 : totals / pageSize;
 
-            if (page==pagenew){
-                String currentPage = req.getParameter("currentPage");
-                System.out.println(currentPage+"---------------------");
+            int row = weaponDao.AddNewWeapon(weaponname, launchplace, range, amount);
+            if(row>0){
+                //获取weapon表数据条数
+                int totalsnew = weaponDao.getDataTotal();
+                //算出多少页
+                int pagenew = totalsnew % pageSize != 0 ? totalsnew / pageSize + 1 : totalsnew / pageSize;
 
-                req.getRequestDispatcher("/findAllWeapons").forward(req,resp);
-                req.setAttribute("currentPage",currentPage);
-            } else {
-                String currentPage = req.getParameter("currentPage");
-                currentPage= String.valueOf((Integer.parseInt(currentPage)+1));
+                if (page==pagenew){
+                    String currentPage = req.getParameter("currentPage");
+                    System.out.println(currentPage+"---------------------");
+                    resp.sendRedirect("/findAllWeapons?currentPage="+page);
+
+
+                } else {
+                    String currentPage = req.getParameter("currentPage");
+                    currentPage= String.valueOf((Integer.parseInt(currentPage)+1));
 //                req.getSession().setAttribute("currentPage",currentPage);
 
-                System.out.println(currentPage+"++++++++++++++++++++++++");
+                    System.out.println(currentPage+"++++++++++++++++++++++++");
 
-                resp.sendRedirect("/findAllWeapons?currentPage="+currentPage);
+                    resp.sendRedirect("/findAllWeapons?currentPage="+pagenew);
+
+
+                }
 
 
             }
+            else{
+                req.getRequestDispatcher("error.jsp").forward(req,resp);
 
-
-        }
-else{
-    req.getRequestDispatcher("error.jsp").forward(req,resp);
+            }
 
         }
 

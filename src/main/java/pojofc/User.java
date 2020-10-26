@@ -45,12 +45,12 @@ public class User {
         this.password = password;
     }
 
-    public String getAdress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setAdress(String adress) {
-        this.address = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getUcode() {
@@ -60,6 +60,7 @@ public class User {
     public void setUcode(String ucode) {
         this.ucode = ucode;
     }
+
     @Override
     public String toString() {
         return "User{" +

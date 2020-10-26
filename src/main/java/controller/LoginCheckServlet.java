@@ -17,7 +17,8 @@ public class LoginCheckServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
         resp.setCharacterEncoding("utf-8");
-
+        HttpSession emptyin = req.getSession();
+        emptyin.setAttribute("emptyin","1");
         String username = req.getParameter("username");
         String pwd = req.getParameter("pwd");
 
@@ -35,6 +36,7 @@ public class LoginCheckServlet extends HttpServlet {
                 //将用户名绑定到session
                 httpSession.setAttribute("username", username);
                 req.setAttribute("msg", username + ":欢迎回来");
+                req.setAttribute("username",username);
                 req.getRequestDispatcher("main.jsp").forward(req, resp);
 
 

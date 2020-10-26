@@ -33,7 +33,7 @@ public class UpdateWeaponInfo extends HttpServlet {
 
             resp.sendRedirect("/findAllWeapons?currentPage="+currentPage);
         }else{
-            req.getRequestDispatcher("error").forward(req,resp);
+            req.getRequestDispatcher("error.jsp").forward(req,resp);
         }
 
     }

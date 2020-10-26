@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.net.URLEncoder;
 
@@ -33,8 +34,13 @@ public class LikeSearchUpdataWeapon extends HttpServlet {
         if(row>0){
             String currentPage = req.getParameter("currentPage");
             System.out.println("++++***++++*****"+currentPage);
-            String url = URLEncoder.encode(weaponname,"UTF-8");//不加这一句无法识别中文
-            resp.sendRedirect("/selectWeaponForLike?currentPage="+currentPage+"&weaponname="+weaponname);
+            HttpSession session = req.getSession();
+            String name =(String) session.getAttribute("weaponname");
+
+            String encode = URLEncoder.encode(name, "UTF-8");//不加这一句无法识别中文
+
+
+            resp.sendRedirect("/selectWeaponForLike?currentPage="+currentPage+"&weaponname="+encode);
 
         }else{
             req.getRequestDispatcher("error").forward(req,resp);

@@ -265,16 +265,16 @@
             <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span></a></li>
 
             <li class="dropdown" style="margin-right: 40px">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                   aria-expanded="false"><span class="glyphicon glyphicon-cog"></span> <span
-                        class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">用户设置</a></li>
-                    <li><a href="#">界面设置n</a></li>
-                    <li><a href="#">其他设置</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">修改密码</a></li>
-                </ul>
+<%--                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"--%>
+<%--                   aria-expanded="false"><span class="glyphicon glyphicon-cog"></span> <span--%>
+<%--                        class="caret"></span></a>--%>
+<%--                <ul class="dropdown-menu">--%>
+<%--                    <li><a href="#">用户设置</a></li>--%>
+<%--                    <li><a href="#">界面设置n</a></li>--%>
+<%--                    <li><a href="#">其他设置</a></li>--%>
+<%--                    <li role="separator" class="divider"></li>--%>
+<%--                    <li><a href="#">修改密码</a></li>--%>
+<%--                </ul>--%>
             </li>
         </ul>
     </div><!-- /.navbar-collapse -->

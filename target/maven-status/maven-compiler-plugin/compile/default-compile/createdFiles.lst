@@ -8,10 +8,12 @@ web\controller\CheckCodeServlet.class
 dao\UserDao.class
 controller\LoginCheckUserName.class
 controller\DeleteWeaponServlet.class
+controller\FindUserByUsernameServlet.class
 pojo\PageBean.class
 web\controller\UpdateUserServlet.class
 web\controller\DelUserServlet.class
 web\controller\LoginServlet.class
+controller\ModifyMessage.class
 util\UuidUtil.class
 web\controller\DelSelectedServlet.class
 controller\FindAllWeaponsServlet.class

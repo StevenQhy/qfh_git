@@ -128,6 +128,41 @@
     });
 </script>
 
+<div class="modal fade"  id="modify" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background-color: rgba(100,0,0,0.7);margin-top: 200px">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"name="exampleModalLabel" style="color: white">修改信息</h4>
+            </div>            <form action="/modifyMessage"method="post">
+            <div class="modal-body">
+
+
+                <div class="form-group">
+                    <label for="xingming"class="control-label"style="color: white">姓名:</label>
+                    <input type="text" class="form-control" name="xingming"id="xingming">
+                </div>
+                <div class="form-group">
+                    <label for="pwd" class="control-label"style="color: white">密码:</label>
+                    <input type="text" class="form-control" name="pwd" id="pwd">
+                    <div class="form-group">
+                        <label for="address" class="control-label"style="color: white">地址:</label>
+                        <input type="text" class="form-control" name="address" id="address">
+                    </div>
+                    <div class="form-group">
+                        <label for="ucode" class="control-label"style="color: white">上级编号:</label>
+                        <input type="text" class="form-control"name="ucode"id="ucode">
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button class="btn btn-primary" type="submit">确认</button>
+            </div></form>
+        </div>
+    </div>
+</div>
 
 <div>
     <img src="image/首页导航.jpg" class="img-responsive" style="width: 100%;height: 22vh">
@@ -194,7 +229,7 @@
                         <li role="separator" class="divider"></li>
                         <li><a href="login.jsp">管理员入口</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">修改信息</a></li>
+                        <li  ><a href="#"class="btn " data-toggle="modal" data-target="#modify" data-whatever="@mdo onclick="onclick=" findUserByUsername('${username}')"style="background: rgba(0,0,0,0)" ><span style="margin-left: -50%">修改信息</span></a></li>
                     </ul>
                 </li>
             </ul>
@@ -340,13 +375,32 @@
 
 </body>
 <script>
-    function findWeaponByWeaponId(weaponid) {
-       alert(weaponid);
-       $.get("/findWeaponForUoDateWeaponById",{"id":weaponid},function (data) {
+    function findUserByUsername(username) {
+       // alert(username);
+       $.get("/findalluserbyusername",{"username":username},function (data) {
+           $("#xingming").val(data.name);
+           $("#pwd").val(data.password);
+           $("#address").val(data.address);
+           $("#ucode").val(data.ucode);
+
+
            //返回json数据格式
 
        });
 
     }
+    var  ggg=${hhh};
+    if (ggg==404){
+
+        alert("请先登录");
+        location.href="main.jsp"
+
+
+
+
+
+    }
+
+
 </script>
 </html>

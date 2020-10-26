@@ -45,7 +45,6 @@ public class RegistUserServlet extends HttpServlet {
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
-        System.out.println(user);
         //3.调用service完成注册
         UserService service = new UserServiceImpl();
         boolean flag = service.regist(user);

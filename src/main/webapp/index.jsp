@@ -31,7 +31,7 @@
                 <!-- menu profile quick info -->
                 <div class="profile clearfix">
                     <div class="profile_pic">
-                        <img src="production/images/inbox.png" alt="..." class="img-circle profile_img">
+                        <img src="production/images/inbox.jpg" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>欢迎您,</span>
@@ -47,18 +47,24 @@
                     <div class="menu_section">
                         <h3>信息设置</h3>
                         <ul class="nav side-menu">
-                            <li><a><i class="fa fa-home"></i> 主页 <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-edit"></i> 人员信息设置 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="${pageContext.request.contextPath}/findUserByPageServlet">数据库信息</a></li>
-                                    <li><a href="${pageContext.request.contextPath}/add.jsp">添加数据</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/findUserByPageServlet">最高权限管理员</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/findSecUserByPageServlet">二级权限管理员</a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-edit"></i> 仓库信息设置 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="form.html">仓库表</a></li>
+                                    <li><a href="form_advanced.html">武器表</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-edit"></i> 个人信息设置 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="form.html">个人信息</a></li>
-                                    <li><a href="form_advanced.html">个人信息修改</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/findUserServlet?id=${user.id}">个人信息修改</a></li>
                                 </ul>
                             </li>
+
                         </ul>
                     </div>
                     <div class="menu_section">
@@ -70,7 +76,7 @@
 
                 <!-- /menu footer buttons -->
                 <div class="sidebar-footer hidden-small">
-                    <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                    <a data-toggle="tooltip" data-placement="top" title="登出" href="/exitServlet">
                         <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                     </a>
                 </div>
@@ -89,13 +95,13 @@
                     <ul class=" navbar-right">
                         <li class="nav-item dropdown open" style="padding-left: 15px;">
                             <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                <img src="production/images/inbox.png" alt="">${user.name}
+                                <img src="production/images/inbox.jpg" alt="">${user.name}
                             </a>
                             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item"  href="javascript:;">
+                                <a class="dropdown-item"  href="/findUserServlet?id=${user.id}">
                                     <span>个人信息设置</span>
                                 </a>
-                                <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i>注销账户</a>
+                                <a class="dropdown-item"  href="/exitServlet"><i class="fa fa-sign-out pull-right"></i>注销账户</a>
                             </div>
                         </li>
                     </ul>

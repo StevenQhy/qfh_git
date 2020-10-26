@@ -55,6 +55,7 @@
             if (flag){
                 //用户名合法
                 $("#password").css("border","");
+
             }else{
                 //用户名非法
                 $("#password").css("border","1px solid red");
@@ -73,6 +74,7 @@
             var flag = reg_email.test(email);
             if (flag){
                 $("#email").css("border","");
+
             }else{
                 $("#email").css("border","1px solid red");
             }
@@ -146,7 +148,7 @@
 
 
 <div class="container" style="width: 400px;">
-    <h3 style="text-align: center;">用户注册</h3>
+    <h3 style="text-align: center;">最高权限管理员注册</h3>
    <form action="${pageContext.request.contextPath}/registUserServlet" method="post" id="registerForm">
     <div class="form-group">
         <label for="name">用户名：</label>

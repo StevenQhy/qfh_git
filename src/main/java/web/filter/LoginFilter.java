@@ -1,4 +1,5 @@
 /*
+
 package web.filter;
 
 import javax.servlet.*;
@@ -19,7 +20,8 @@ public class LoginFilter implements Filter {
         //1.获取资源请求路径
         String uri = request.getRequestURI();
         //2.判断是否包含登录相关资源路径
-        if(uri.contains(("/login.jsp"))|| uri.contains("/loginServlet")|| uri.contains("/checkCodeServlet")|| uri.contains("/build/")|| uri.contains("/css/")|| uri.contains("/fonts/")|| uri.contains("/js/")|| uri.contains("/vendors/")||uri.contains("/loginAjaxServlet")){
+        if(uri.contains(("/login.jsp"))|| uri.contains("/loginServlet")|| uri.contains("/checkCodeServlet")|| uri.contains("/build/")|| uri.contains("/css/")|| uri.contains("/fonts/")|| uri.contains("/js/")|| uri.contains("/vendors/")||uri.contains("/loginAjaxServlet")
+        || uri.contains("/register.jsp")|| uri.contains("/registerAjaxServlet")|| uri.contains("/register_yes.html")||uri.contains("/activeServlet")||uri.contains("/registUserServlet")){
             //包含，证明用户就是想登录
             chain.doFilter(req, resp);
         }else{

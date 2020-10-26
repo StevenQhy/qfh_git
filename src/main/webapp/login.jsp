@@ -69,7 +69,7 @@
 
 
 <div class="container" style="width: 400px;">
-    <h3 style="text-align: center;">管理员登录</h3>
+    <h3 style="text-align: center;">最高权限管理员登录</h3>
     <form id="login_form" action="${pageContext.request.contextPath}/loginServlet" method="post">
         <div class="form-group">
             <label for="usercode">用户名：</label>
@@ -92,7 +92,7 @@
         </div>
         <hr/>
         <div class="form-group" style="text-align: center;">
-            <input id="btn_login" class="btn btn btn-primary" type="submit" value="登录">
+            <input id="btn_login" class="btn btn btn-primary" type="submit" style="width: 345px" value="登录">
         </div>
     </form>
 

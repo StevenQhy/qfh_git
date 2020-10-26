@@ -7,6 +7,11 @@ public class User {
     private int age;
     private String address;
     private String qq;
+    private String email;
+    private String username;
+    private String password;
+    private String code;
+    private String status;
 
     public String getCode() {
         return code;
@@ -23,12 +28,6 @@ public class User {
     public void setStatus(String status) {
         this.status = status;
     }
-
-    private String email;
-    private String username;
-    private String password;
-    private String code;
-    private String status;
 
     public String getUsername() {
         return username;
@@ -114,6 +113,8 @@ public class User {
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", code='" + code + '\'' +
+                ", status='" + status + '\'' +
                 '}';
     }
 }

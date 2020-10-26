@@ -23,27 +23,32 @@ public class LoginAjaxServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
 
         String username = request.getParameter("username");
-        String pawd = request.getParameter("password");
         //获取用户名
         Map<String,Object> map1 = new HashMap<String,Object>();
         UserDao dao = new UserDaoImpl();
         List<User> users = dao.finAll();
+
         for (User user : users) {
             String name = user.getUsername();
-            String password = user.getPassword();
             String status = user.getStatus();
+            //System.out.println(username.equals(name));
             if (username.equals(name)){
+                //System.out.println("名字匹配");
                 if ("Y".equals(status)){
+                    //System.out.println("状态激活");
                     map1.put("userExsit",true);
-                    map1.put("msg","恭喜您,您已注册且账号已激活");
+                    map1.put("msg","账户已注册且已激活");
                     break;
                 }else{
+                    //System.out.println("状态未激活");
                     map1.put("userExsit",false);
                     map1.put("msg","账户已注册，但未激活请去邮箱激活");
+                    break;
                 }
             }else{
+                //System.out.println("用户名不匹配");
                 map1.put("userExsit",false);
-                map1.put("msg","账户未激活或未注册，请去注册或激活");
+                map1.put("msg","账户未注册");
             }
 
             /*if(username.equals(name) && "Y".equals(status)){
@@ -71,7 +76,7 @@ public class LoginAjaxServlet extends HttpServlet {
                 map1.put("msg","快去注册");
             }*/
 
-        //将map转为jason，并写到页面上
+        //将map转为json，并写到页面上
         ObjectMapper mapper = new ObjectMapper();
         //并传递给客户端
         mapper.writeValue(response.getWriter(),map1);

@@ -105,18 +105,21 @@
                     <div class="menu_section">
                         <h3>信息设置</h3>
                         <ul class="nav side-menu">
-                            <li><a><i class="fa fa-home"></i> 主页 <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-edit"></i> 人员信息设置 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="${pageContext.request.contextPath}/findUserByPageServlet">数据库信息</a></li>
-                                    <li><a href="${pageContext.request.contextPath}/add.jsp">添加数据</a></li>
-                                    <li><a href="${pageContext.request.contextPath}/findWareHouseByPageServlet.jsp">仓库信息</a></li>
-                                    <li><a href="${pageContext.request.contextPath}/findWeaponByPageServlet">武器信息</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/findUserByPageServlet">最高权限管理员</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/findSecUserByPageServlet">二级权限管理员</a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-edit"></i> 仓库信息设置 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="${pageContext.request.contextPath}/findWareHouseByPageServlet">仓库表</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/findWeaponByPageServlet">武器表</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-edit"></i> 个人信息设置 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="form.html">个人信息</a></li>
-                                    <li><a href="form_advanced.html">个人信息修改</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/findUserServlet?id=${user.id}">个人信息修改</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -244,7 +247,7 @@
                                 <c:if test="${pb.currentPage != pb.totalPage}">
                             <li class="page-item">
                                 </c:if>
-                                <a aria-controls="datatable" href="${pageContext.request.contextPath}//findWareHouseByPageServlet=${pb.currentPage + 1}&rows=5" aria-label="Next">
+                                <a aria-controls="datatable" href="${pageContext.request.contextPath}//findWareHouseByPageServlet?currentPage=${pb.currentPage + 1}&rows=5" aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
                                 </a>
                             </li>

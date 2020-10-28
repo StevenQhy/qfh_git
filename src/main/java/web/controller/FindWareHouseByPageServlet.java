@@ -30,7 +30,7 @@ public class FindWareHouseByPageServlet extends HttpServlet {
         }
         //获取条件查询的参数
         Map<String,String[]> condition=request.getParameterMap();
-        System.out.println(condition);
+
 
         WareHouseService service=new WareHouseServiceImpl();
         PageBean<WareHouse> pb=service.findWareHouseByPage(currentPage,rows,condition);

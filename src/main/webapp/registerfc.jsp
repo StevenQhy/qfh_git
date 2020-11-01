@@ -195,9 +195,9 @@
 <%--                               placeholder="Ucode" style="width:70%;margin-left: 120px">--%>
                     <select class="form-control" data-style="btn-info" style="width:70%;margin-left: 120px;border-radius: 15px;background-color: rgba(255,255,255,0.5)" name="ucode"id="sjzh">
                         <option selected disabled style="background:gainsboro">&nbsp;&nbsp;请选择</option>
-                    <option style="background-color:lightgray">1号管理员</option>
-                    <option style="background-color:lightgray">2号管理员</option>
-                    <option style="background:lightgrey">3号管理员</option>
+                    <option style="background-color:lightgray">1</option>
+                    <option style="background-color:lightgray">2</option>
+                    <option style="background:lightgrey">3</option>
                     </select>
                     </div>
 

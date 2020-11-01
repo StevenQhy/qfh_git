@@ -315,9 +315,9 @@
 
     })
     if("${emptyin}"==2){
-
-        window.location.href="/findAllWeapons?&currentPage=1" ;
         alert("添加为空,添加失败");
+        window.location.href="/findAllWeapons?&currentPage=1" ;
+
 
     }
 

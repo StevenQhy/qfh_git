@@ -1,3 +1,4 @@
+daofc\PageDao.class
 web\filter\CharchaterFilter.class
 dao\SecUserDao.class
 web\controller\ActiveUserServlet.class
@@ -7,11 +8,13 @@ dao\UserDao.class
 web\controller\ExitServlet.class
 pojo\SecUser.class
 web\controller\UpdateSecUserServlet.class
+controller\FindUserByUsernameServlet.class
 pojo\PageBean.class
 web\controller\UpdateUserServlet.class
 web\controller\DelUserServlet.class
 web\controller\LoginServlet.class
 web\controller\FindSecUserServlet.class
+controller\ModifyMessage.class
 util\UuidUtil.class
 web\controller\DelSelectedServlet.class
 dao\impl\SecUserDaoImpl.class
@@ -31,8 +34,10 @@ web\controller\FindSecUserByPageServlet.class
 dao\impl\UserDaoImpl.class
 web\controller\AddUserServlet.class
 web\controller\LoginAjaxServlet.class
+web\controller\DekSelectWareHouseServlet.class
 web\controller\SecUserListServlet.class
 util\MailUtils$1.class
+controller\LikeSearchUpdataWeapon.class
 util\MailUtils.class
 web\controller\RegisterAjaxServlet.class
 pojo\ResultInfo.class

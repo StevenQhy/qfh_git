@@ -164,7 +164,6 @@
                     <div class="form-group" style="text-align: center">
                         <input class="btn btn-primary" type="submit" value="提交" />
                         <input class="btn btn-link " type="reset" value="重置" />
-                        <input class="btn btn-link " type="button" value="返回" />
                     </div>
                 </form>
             </div>

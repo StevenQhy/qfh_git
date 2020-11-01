@@ -254,7 +254,7 @@
                 </a>
             </li>
             <c:forEach items="${array}"  varStatus="i">
-                <li><a href="/findAllWeapons?currentPage=${i.count}">${i.count}</a></li><!--获取集合索引值-->
+                <li><a href="/findAllWeapons?currentPage=${i.count}">${i.count}</a></li><!--从1开始迭代计数-->
             </c:forEach>
             <li>
                 <a href="/findAllWeapons?currentPage=${currentPage+1}" aria-label="Next" >

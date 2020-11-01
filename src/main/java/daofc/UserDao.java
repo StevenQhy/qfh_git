@@ -17,7 +17,7 @@ public class UserDao {
         PreparedStatement ps = null;//创建一个 PreparedStatement 对象来将参数化的 SQL 语句发送到数据库
 
         int row = 0;
-        String sql = "insert into tb_user(id,username,password,name,address,ucode) values(null,?,?,?,?,?)";
+        String sql = "insert into secuser(id,username,password,name,address,ucode) values(null,?,?,?,?,?)";
 
 
         try {
@@ -55,7 +55,7 @@ public class UserDao {
     public User judge(String username) {
         Connection conn = DBUtil.getConn();//获取数据库连接对象
         User user = null;
-        String sql = "select * from tb_user where username=? ";
+        String sql = "select * from secuser where username=? ";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
 
@@ -94,7 +94,7 @@ public class UserDao {
     public User finduserbyusername(String username){
         Connection conn = DBUtil.getConn();
         User user = null;
-        String sql = "select * from tb_user where username=? ";
+        String sql = "select * from secuser where username=? ";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
 
@@ -135,7 +135,7 @@ public class UserDao {
     public int modifyuser(String username, String name ,String password,String address,String ucode) {
         Connection conn = DBUtil.getConn();
         int row = 0;
-        String sql = "update tb_user set name=?, password=?, address=?, ucode=? where username=? ";
+        String sql = "update secuser set name=?, password=?, address=?, ucode=? where username=? ";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, name);

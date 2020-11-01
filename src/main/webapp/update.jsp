@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page isELIgnored="false" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <!-- 网页使用的语言 -->
 <html lang="zh-CN">
     <head>
@@ -180,7 +180,6 @@
                         <div class="form-group" style="text-align: center">
                             <input class="btn btn-primary" type="submit" value="提交" />
                             <input class="btn btn-default" type="reset" value="重置" />
-                            <input class="btn btn-default" type="button" value="返回"/>
                         </div>
                     </form>
                 </div>

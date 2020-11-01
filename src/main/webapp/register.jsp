@@ -38,9 +38,11 @@
             if (flag){
                 //用户名合法
                 $("#name").css("border","");
+                $("#s_username2").html("")
             }else{
                 //用户名非法
                 $("#name").css("border","1px solid red");
+                $("#s_username2").html("<span style='color: red'>用户名长度必须在8-20位</span>")
             }
             return flag;
         }
@@ -55,10 +57,11 @@
             if (flag){
                 //用户名合法
                 $("#password").css("border","");
-
+                $("#s_password").html("")
             }else{
                 //用户名非法
                 $("#password").css("border","1px solid red");
+                $("#s_password").html("<span style='color: red'>密码长度必须在8-20位</span>")
             }
             return flag;
         }
@@ -74,9 +77,10 @@
             var flag = reg_email.test(email);
             if (flag){
                 $("#email").css("border","");
-
+                $("#s_email").html("")
             }else{
                 $("#email").css("border","1px solid red");
+                $("#s_email").html("<span style='color: red'>请输入正确的邮箱格式</span>")
             }
             return flag;
         }
@@ -153,7 +157,7 @@
     <div class="form-group">
         <label for="name">用户名：</label>
         <input type="text" class="form-control" id="name" name="username" placeholder="请输入用名">
-        <span id="s_username"></span>
+        <span id="s_username"></span><span id="s_username2"></span>
     </div>
 
 
@@ -161,6 +165,7 @@
     <div class="form-group">
         <label for="password">密码：</label>
         <input type="text" class="form-control" id="password" name="password" placeholder="请输入密码">
+        <span id="s_password"></span>
     </div>
        <div class="form-group">
            <label for="realname">姓名：</label>
@@ -173,6 +178,7 @@
        <div class="form-group">
            <label for="email">Email：</label>
            <input id="email" type="text" class="form-control" name="email" placeholder="请输入邮箱地址"/>
+           <span id="s_email"></span>
        </div>
 
 

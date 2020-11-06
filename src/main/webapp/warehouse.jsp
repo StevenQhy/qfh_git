@@ -89,7 +89,7 @@
                 <!-- menu profile quick info -->
                 <div class="profile clearfix">
                     <div class="profile_pic">
-                        <img src="production/images/inbox.png" alt="..." class="img-circle profile_img">
+                        <img src="production/images/inbox.jpg" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>欢迎您,</span>
@@ -122,6 +122,7 @@
                                     <li><a href="${pageContext.request.contextPath}/findUserServlet?id=${user.id}">个人信息修改</a></li>
                                 </ul>
                             </li>
+
                         </ul>
                     </div>
                     <div class="menu_section">
@@ -133,7 +134,7 @@
 
                 <!-- /menu footer buttons -->
                 <div class="sidebar-footer hidden-small">
-                    <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                    <a data-toggle="tooltip" data-placement="top" title="Logout" href="/exitServlet">
                         <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                     </a>
                 </div>
@@ -152,13 +153,13 @@
                     <ul class=" navbar-right">
                         <li class="nav-item dropdown open" style="padding-left: 15px;">
                             <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                <img src="production/images/inbox.png" alt="">${user.name}
+                                <img src="production/images/inbox.jpg" alt="">${user.name}
                             </a>
                             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item"  href="javascript:;">
                                     <span>个人信息设置</span>
                                 </a>
-                                <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i>注销账户</a>
+                                <a class="dropdown-item"  href="/exitServlet"><i class="fa fa-sign-out pull-right"></i>注销账户</a>
                             </div>
                         </li>
                     </ul>

@@ -61,8 +61,8 @@
                                 </li>
                                 <li><a><i class="fa fa-edit"></i> 仓库信息设置 <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="form.html">仓库表</a></li>
-                                        <li><a href="form_advanced.html">武器表</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/findWareHouseByPageServlet">仓库表</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/findWeaponByPageServlet">武器表</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-edit"></i> 个人信息设置 <span class="fa fa-chevron-down"></span></a>
